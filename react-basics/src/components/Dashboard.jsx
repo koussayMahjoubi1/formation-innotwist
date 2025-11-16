@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
   // Get user data from localStorage
   const user = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -8,6 +9,10 @@ function Dashboard() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     window.location.href = "/login";
+  };
+
+  const handleProducts = () => {
+    navigate("/products");
   };
 
   return (
@@ -64,33 +69,62 @@ function Dashboard() {
             You have successfully logged in to your account.
           </p>
         </div>
-        <button
-          onClick={handleLogout}
-          style={{
-            background: "#667eea",
-            color: "white",
-            border: "none",
-            padding: "0.8rem 2rem",
-            fontSize: "1rem",
-            borderRadius: "30px",
-            cursor: "pointer",
-            fontWeight: "600",
-            transition: "all 0.3s ease",
-            boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)"
-          }}
-          onMouseOver={(e) => {
-            e.target.style.background = "#5568d3";
-            e.target.style.transform = "translateY(-2px)";
-            e.target.style.boxShadow = "0 6px 20px rgba(102, 126, 234, 0.5)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.background = "#667eea";
-            e.target.style.transform = "translateY(0)";
-            e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.4)";
-          }}
-        >
-          Logout
-        </button>
+        <div style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
+          <button
+            onClick={handleProducts}
+            style={{
+              background: "#10b981",
+              color: "white",
+              border: "none",
+              padding: "0.8rem 2rem",
+              fontSize: "1rem",
+              borderRadius: "30px",
+              cursor: "pointer",
+              fontWeight: "600",
+              transition: "all 0.3s ease",
+              boxShadow: "0 4px 15px rgba(16, 185, 129, 0.4)"
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background = "#059669";
+              e.target.style.transform = "translateY(-2px)";
+              e.target.style.boxShadow = "0 6px 20px rgba(16, 185, 129, 0.5)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.background = "#10b981";
+              e.target.style.transform = "translateY(0)";
+              e.target.style.boxShadow = "0 4px 15px rgba(16, 185, 129, 0.4)";
+            }}
+          >
+            Products
+          </button>
+          <button
+            onClick={handleLogout}
+            style={{
+              background: "#667eea",
+              color: "white",
+              border: "none",
+              padding: "0.8rem 2rem",
+              fontSize: "1rem",
+              borderRadius: "30px",
+              cursor: "pointer",
+              fontWeight: "600",
+              transition: "all 0.3s ease",
+              boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)"
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background = "#5568d3";
+              e.target.style.transform = "translateY(-2px)";
+              e.target.style.boxShadow = "0 6px 20px rgba(102, 126, 234, 0.5)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.background = "#667eea";
+              e.target.style.transform = "translateY(0)";
+              e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.4)";
+            }}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   );

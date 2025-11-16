@@ -1,4 +1,3 @@
-// Temporary in-memory storage for users
 class UserStorage {
   constructor() {
     this.users = [];
