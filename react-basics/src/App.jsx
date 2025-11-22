@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Products from "./components/Products";
+import Staff from "./components/Staff";//new
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/staff" element={<Staff />} />//
       </Routes>
     </Router>
   );

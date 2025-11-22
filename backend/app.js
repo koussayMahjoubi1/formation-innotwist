@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./authRoutes');
 const productRoutes = require('./productRoutes');
+const staffRoutes = require('./staffRoutes');//new
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,9 @@ app.use('/api/auth', authRoutes);
 
 // Product routes
 app.use('/api/products', productRoutes);
+
+// Staff routes
+app.use('/api/staff', staffRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
